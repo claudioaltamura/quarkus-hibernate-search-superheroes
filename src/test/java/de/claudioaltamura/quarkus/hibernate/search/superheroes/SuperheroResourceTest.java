@@ -4,17 +4,20 @@ import static io.restassured.RestAssured.given;
 
 import org.junit.jupiter.api.Test;
 
+import de.claudioaltamura.quarkus.hibernate.search.superheroes.quarkus.hibernate.search.superheroes.SuperheroResource;
+import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
+@TestHTTPEndpoint(SuperheroResource.class)
 class SuperheroResourceTest {
 
-    @Test
-    void testHelloEndpoint() {
-        given()
-          .when().get("/api/v1/superheroes")
-          .then()
-             .statusCode(200);
-    }
+	@Test
+	void testHelloEndpoint() {
+		given()
+				.when().get()
+				.then()
+				.statusCode(200);
+	}
 
 }
